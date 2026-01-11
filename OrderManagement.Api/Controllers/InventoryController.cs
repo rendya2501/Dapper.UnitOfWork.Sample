@@ -21,6 +21,7 @@ public class InventoryController(IInventoryService inventoryService) : Controlle
     public async Task<IActionResult> GetAll()
     {
         var inventories = await inventoryService.GetAllAsync();
+
         return Ok(inventories);
     }
 
@@ -80,6 +81,7 @@ public class InventoryController(IInventoryService inventoryService) : Controlle
     public async Task<IActionResult> Delete(int productId)
     {
         await inventoryService.DeleteAsync(productId);
+
         return NoContent();
     }
 }
